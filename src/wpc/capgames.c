@@ -92,7 +92,8 @@ CORE_GAMEDEFNV(ghv101,"Goofy Hoops",1995,"Romstar",cc1,GAME_NOT_WORKING)
 /*-------------------------------------------------------------------
 / Pinball Magic (10/95)
 /-------------------------------------------------------------------*/
-INITGAMEFF(pmv112, 1, cc_dispDMD128x32, 3, SNDBRD_CAPCOMS, 8, 0x9f3e)
+//INITGAMEFF(pmv112, 1, cc_dispDMD128x32, 3, SNDBRD_CAPCOMS, 8, 0x9f3e)
+INITGAME(pmv112, 1, cc_dispDMD128x32, 3, SNDBRD_CAPCOMS, 8)
 //Version 1.0.12
 CC_ROMSTART_4(pmv112,  "u1l_v112.bin",CRC(c8362623) SHA1(ebe37d3273e5cefd4fbc041ea3b15d59010b8160),
                        "u1h_v112.bin",CRC(f6232c74) SHA1(28bab61de2ece27aff4cbdd36b10c136a4b7c936),
@@ -106,7 +107,8 @@ CAPCOMS_SOUNDROM3("u24_v11.bin", CRC(d46212f4) SHA1(50f1279d995b597c468805b323e0
 CC_ROMEND
 CORE_GAMEDEFNV(pmv112,"Pinball Magic",1995,"Capcom",cc2,0)
 //Redemption Version 1.0.12I
-INITGAMEFF(pmv112r, 2, cc_dispDMD128x32, 3, SNDBRD_CAPCOMS, 8, 0x9f3e)
+//INITGAMEFF(pmv112r, 2, cc_dispDMD128x32, 3, SNDBRD_CAPCOMS, 8, 0x9f3e)
+INITGAME(pmv112r, 2, cc_dispDMD128x32, 3, SNDBRD_CAPCOMS, 8)
 CC_ROMSTART_4(pmv112r, "u1lv112i.bin",CRC(28d35969) SHA1(e19856402855847286db73c17510614d8b40c882),
                        "u1hv112i.bin",CRC(f70da65c) SHA1(0f98c95edd6f2821e3a67ff1805aa752a4d018c0),
                        "u2l_v10.bin", CRC(d3e4241d) SHA1(fe480ea2b3901e2e571f8871a0ebe63fbf152e28),
@@ -123,7 +125,8 @@ CORE_CLONEDEFNV(pmv112r,pmv112,"Pinball Magic (Redemption)",1995,"Capcom",cc2,0)
 / Airborne (03/96)
 /-------------------------------------------------------------------*/
 //Version 1.6
-INITGAMEFF(abv106, 3, cc_dispDMD128x32, 3, SNDBRD_CAPCOMS, 8, 0x0a7c6)
+//INITGAMEFF(abv106, 3, cc_dispDMD128x32, 3, SNDBRD_CAPCOMS, 8, 0x0a7c6)
+INITGAME(abv106, 3, cc_dispDMD128x32, 3, SNDBRD_CAPCOMS, 8)
 CC_ROMSTART_4(abv106,  "u1l_v16.bin", CRC(59b258f1) SHA1(764496114609d65648e1c7b12409ec582037d8df),
                        "u1h_v16.bin", CRC(a4571905) SHA1(62fabc45e81c49125c047c6e5d268d4093b860bc),
                        "u2l_v10.bin", CRC(a15b1ec0) SHA1(673a283ddf670109a9728fefac2bcf493d70f23d),
@@ -152,7 +155,8 @@ CORE_CLONEDEFNV(abv106r,abv106,"Airborne (Redemption)",1996,"Capcom",cc2,0)
 / Break Shot (05/96)
 /-------------------------------------------------------------------*/
 //Version 1.3
-INITGAMEFF(bsv103, 5, cc_dispDMD128x32, 3, SNDBRD_CAPCOMS, 0, 0xa7da)
+//INITGAMEFF(bsv103, 5, cc_dispDMD128x32, 3, SNDBRD_CAPCOMS, 0, 0xa7da)
+INITGAME(bsv103, 5, cc_dispDMD128x32, 3, SNDBRD_CAPCOMS, 0)
 CC_ROMSTART_2(bsv103,  "u1l_v13.bin", CRC(f8932dcc) SHA1(dab34e6c412655c60abeedc1f62254dce5ebb202),
                        "u1h_v13.bin", CRC(508c145d) SHA1(b019d445f87bca203646c616fdc295066da90921))
 //I'm told BS can run with the U24 from FF
@@ -210,7 +214,8 @@ CORE_CLONEDEFNV(bsb105,bsv103,"Break Shot (Beta)",1996,"Capcom",cc1,0)
 //Version 1.04
 // Not 100% clear on FF address for this one.   Goes 0-255 at seemingly appropriate times,
 // but will disable flips for a short period on a tilt warning ("yellow card" on DMD).
-INITGAMEFF(ffv104, 9, cc_dispDMD256x64, 3, SNDBRD_CAPCOMS, 8, 0x010af)
+//INITGAMEFF(ffv104, 9, cc_dispDMD256x64, 3, SNDBRD_CAPCOMS, 8, 0x010af)
+INITGAME(ffv104, 9, cc_dispDMD256x64, 3, SNDBRD_CAPCOMS, 8)
 CC_ROMSTART_8(ffv104,  "u1l_v104.bin",CRC(375f4dd3) SHA1(0e3845afccf51a2d20e01afb371b8b7076a1ea79),
                        "u1h_v104.bin",CRC(2133fc8e) SHA1(b4296f890a11aefdd09083636f416112e64fb0be),
                        "u2l_v104.bin",CRC(b74175ae) SHA1(dd0279e20a2ccb03dbea0087ab9d15a973543553),
@@ -248,7 +253,8 @@ CORE_CLONEDEFNV(ffv101,ffv104,"Flipper Football (1.01)",1996,"Capcom",cc2,0)
 / Big Bang Bar - Beta (11/96)
 /-------------------------------------------------------------------*/
 //Beta Version 1.9
-INITGAMEFF(bbb109, 10, cc_dispDMD128x32, 3, SNDBRD_CAPCOMS, 8, 0x6234d)
+//INITGAMEFF(bbb109, 10, cc_dispDMD128x32, 3, SNDBRD_CAPCOMS, 8, 0x6234d)
+INITGAME(bbb109, 10, cc_dispDMD128x32, 3, SNDBRD_CAPCOMS, 8)
 CC_ROMSTART_4(bbb109,  "u1l_b19.bin", CRC(32be6cb0) SHA1(e6c73366d5b85c0e96878e275320f82004bb97b5),
                        "u1h_b19.bin", CRC(2bd1c06d) SHA1(ba81faa07b9d53f51bb981a82aa8684905516420),
                        "u2l_b17.bin", CRC(9bebf271) SHA1(01c85396b96ffb04e445c03d6d2d88cce7835664),
@@ -282,7 +288,8 @@ CORE_CLONEDEFNV(bbb108,bbb109,"Big Bang Bar (Beta 1.8 US)",1996,"Capcom",cc2,0)
 //With the help of other people, I have found out that this is really version
 //"B1.05", not "V1.0".If you find a version 1.0, please contact me at
 //pfutz@mediaone.net
-INITGAMEFF(kpb105, 11, cc_dispDMD128x32, 3, SNDBRD_CAPCOMS, 8, 0x70d5)
+//INITGAMEFF(kpb105, 11, cc_dispDMD128x32, 3, SNDBRD_CAPCOMS, 8, 0x70d5)
+INITGAME(kpb105, 11, cc_dispDMD128x32, 3, SNDBRD_CAPCOMS, 8)
 CC_ROMSTART_2X(kpb105, "u1hu1l.bin", CRC(d2d42121) SHA1(c731e0b5c9b211574dda8aecbad799bc180a59db),
                        "u2hu2l.bin", CRC(9cd91371) SHA1(197a06a0ed6b661d798ed18b1db72215c28e1bc2))
 CAPCOMS_SOUNDROM4b("u24_v11.bin", CRC(d46212f4) SHA1(50f1279d995b597c468805b323e0252800b28274), \
