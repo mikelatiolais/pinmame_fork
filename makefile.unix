@@ -76,6 +76,12 @@ TARGET = pinmame
 # this will also select 'vid_lisy' as DISPLAY_METHOD
 # LISY_X_FAKE_VIDEO = 1
 
+# uncomment next line to include OPPA support
+# OPPA_X = 1
+# uncomment next line to enable support for LISY fake VIDEO driver
+# this will also select 'vid_lisy' as DISPLAY_METHOD
+# OPPA_X_FAKE_VIDEO = 1
+
 ###########################################################################
 # Development environment options 
 ###########################################################################
@@ -639,6 +645,12 @@ ifdef LISY_X_FAKE_VIDEO
 DISPLAY_METHOD = vid_lisy
 endif
 
+# OPPA_X NO video output
+# automatic selection 
+ifdef OPPA_X_FAKE_VIDEO
+DISPLAY_METHOD = vid_oppa
+endif
+
 
 ###########################################################################
 # X-Window options (only needed when X is the display method)
@@ -774,6 +786,16 @@ endif
 ifdef LISY_X_FAKE_VIDEO
 # Enable support for LISY fake VIDEO driver
 CFLAGS += -DLISY_VIDEO
+endif
+
+ifdef OPPA_X
+# Enable support for OPPA
+CFLAGS += -DOPPA_SUPPORT
+endif
+
+ifdef OPPA_X_FAKE_VIDEO
+# Enable support for OPPA fake VIDEO driver
+CFLAGS += -DOPPA_VIDEO
 endif
 
 
