@@ -559,7 +559,7 @@ static void bop_handleMech(int mech) {
 
 	if (g_fHandleMechanics < 0)
 	{
-		if (_stricmp(Machine->gamedrv->name, "bop_l7") == 0)
+		if (strcasecmp(Machine->gamedrv->name, "bop_l7") == 0)
 		{
 			// Reset Bride of Pinbot face to 0. 
 			wpc_ram[0x1fc9] = 0x01;
