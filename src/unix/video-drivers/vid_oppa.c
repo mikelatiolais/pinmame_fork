@@ -1,12 +1,11 @@
 /* 
- vid_lisy.c part of LISY80
- bontango October 2016
+ vid_oppa.c
  */
 
 #include "xmame.h"
 struct rc_option display_opts[] = {
    /* name, shortname, type, dest, deflt, min, max, func, help */
-   { "LISY Related", NULL,                   rc_seperator,   NULL,
+   { "OPPA Related", NULL,                   rc_seperator,   NULL,
      NULL,              0,                      0,              NULL,
      NULL },
    { NULL,              NULL,                   rc_link,        mode_opts,
