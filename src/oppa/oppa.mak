@@ -5,6 +5,7 @@ OBJDIRS += $(OBJ)/oppa
 
 # add objects for OPPA
 OPPAOBJS = \
+$(OBJ)/oppa/oppa.o
 
 
 # OPPA functions
