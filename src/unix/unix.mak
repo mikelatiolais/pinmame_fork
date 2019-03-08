@@ -121,6 +121,7 @@ endif
 OBJ     = $(NAME).obj
 PROC_OBJ = $(NAME).obj/p-roc
 LISY_OBJ = $(NAME).obj/lisy
+OPPA_OBJ = $(NAME).obj/oppa
 
 CORE_OBJDIRS = $(OBJ) \
 	$(OBJ)/drivers $(OBJ)/machine $(OBJ)/vidhrdw $(OBJ)/sndhrdw \
@@ -181,6 +182,10 @@ ifdef LISY_X
 include src/lisy/lisy.mak
 endif
 
+ifdef OPPA_X
+include src/oppa/oppa.mak
+endif
+
 ifdef DEBUG
 DBGDEFS = -DMAME_DEBUG
 else
@@ -207,6 +212,10 @@ endif
 ifdef LISY_X
 MY_LIBS += -lSDL2
 MY_LIBS += -lSDL2_mixer
+MY_LIBS += -lwiringPi
+endif
+
+ifdef OPPA_X
 MY_LIBS += -lwiringPi
 endif
 
@@ -319,9 +328,9 @@ MY_OBJDIRS = $(CORE_OBJDIRS) $(sort $(OBJDIRS))
 ##############################################################################
 # Begin of the real makefile.
 ##############################################################################
-$(NAME).$(DISPLAY_METHOD): $(OBJS) $(PROCOBJS) $(LISYOBJS)
+$(NAME).$(DISPLAY_METHOD): $(OBJS) $(PROCOBJS) $(LISYOBJS) $(OPPAOBJS)
 	$(CC_COMMENT) @echo 'Linking $@ ...'
-	$(CC_COMPILE) $(LD) $(LDFLAGS) -o $@ $(OBJS) $(PROCOBJS) $(LISYOBJS) $(MY_LIBS) 
+	$(CC_COMPILE) $(LD) $(LDFLAGS) -o $@ $(OBJS) $(PROCOBJS) $(LISYOBJS) $(OPPAOBJS) $(MY_LIBS) 
 
 tools: $(ZLIB) $(OBJDIRS) $(TOOLS)
 
@@ -380,6 +389,10 @@ $(PROC_OBJ)/%.o: src/p-roc/%.cpp
 	$(CC_COMPILE) $(CPP) $(MY_CFLAGS) -o $@ -c $<
 
 $(LISY_OBJ)/%.o: src/lisy/%.c
+	$(CC_COMMENT) @echo 'Compiling $< ...'
+	$(CC_COMPILE) $(CC) $(MY_CFLAGS) -o $@ -c $<
+
+$(OPPA_OBJ)/%.o: src/oppa/%.c
 	$(CC_COMMENT) @echo 'Compiling $< ...'
 	$(CC_COMPILE) $(CC) $(MY_CFLAGS) -o $@ -c $<
 
