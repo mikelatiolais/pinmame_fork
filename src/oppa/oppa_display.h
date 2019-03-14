@@ -15,6 +15,17 @@ typedef unsigned char  UINT8;
 #define OPPA_NUM_OF_BYTES 512 // 4096 / 8 bits
 #define OPPA_NUM_OF_ROWS 32
 
+// Display functions
+void procDMDInit(void);
+void procClearDMD(void);
+void procDrawDot(int x, int y, int color);
+void procDrawSegment(int x, int y, int seg);
+void procFillDMDSubFrame(int frameIndex, UINT8 *dotData, int length);
+void procReverseSubFrameBytes(int frameIndex);
+void procUpdateDMD(void);
+void procUpdateAlphaDisplay(UINT16 *top, UINT16 *bottom);
+void procDisplayText(char *top, char *bottom);
+
 void oppaInitDMD();
 void oppaUpdateDMD(UINT8 *dotData);
 
