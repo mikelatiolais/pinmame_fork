@@ -125,6 +125,8 @@
  #include "lisy/lisy1.h"
  #include "lisy/utils.h"
 #endif /* PINMAME && LISY_SUPPORT */
+#if defined(PINMAME) && defined(OPPA_SUPPORT)
+#endif /* PINMAME && OPPA_SUPPORT */
 
 /***************************************************************************
 
@@ -375,6 +377,9 @@ static int init_machine(void)
 #if defined(PINMAME) && defined(LISY_SUPPORT)
 	lisy_init();
 #endif /* PINMAME && LISY_SUPPORT */
+#if defined(PINMAME) && defined(OPPA_SUPPORT)
+	oppa_init();
+#endif /* PINMAME && OPPA_SUPPORT */
 
 	/* if we have inputs, process them now */
 	if (gamedrv->input_ports)
