@@ -60,8 +60,3 @@ void oppaUpdateDMD(UINT8 *dotData) {
     delayMicroseconds(100);
   }
 }
-
-/* Initialize the OPPA controller */
-void oppaInit() {
-  
-}
