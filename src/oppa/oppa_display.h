@@ -16,6 +16,7 @@ typedef unsigned char  UINT8;
 #define OPPA_NUM_OF_ROWS 32
 
 // Display functions
+/*
 void procDMDInit(void);
 void procClearDMD(void);
 void procDrawDot(int x, int y, int color);
@@ -25,6 +26,7 @@ void procReverseSubFrameBytes(int frameIndex);
 void procUpdateDMD(void);
 void procUpdateAlphaDisplay(UINT16 *top, UINT16 *bottom);
 void procDisplayText(char *top, char *bottom);
+*/
 
 void oppaInitDMD();
 void oppaUpdateDMD(UINT8 *dotData);

@@ -4,6 +4,7 @@ typedef unsigned char  UINT8;
 
 #include <wiringPi.h>
 #include <wiringShift.h>
+#include <wiringSerial.h>
 
 
 // Gameitem functions
