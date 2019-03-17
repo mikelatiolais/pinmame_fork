@@ -381,7 +381,8 @@ static int init_machine(void)
 	lisy_init();
 #endif /* PINMAME && LISY_SUPPORT */
 #if defined(PINMAME) && defined(OPPA_SUPPORT)
-	//oppa_init();
+	oppa_init();
+        oppaInitDMD();
 #endif /* PINMAME && OPPA_SUPPORT */
 
 	/* if we have inputs, process them now */
