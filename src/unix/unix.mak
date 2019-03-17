@@ -203,7 +203,7 @@ MY_CFLAGS = $(CFLAGS) $(IL) $(CFLAGS.$(MY_CPU)) \
 	$(COREDEFS) $(SOUNDDEFS) $(CPUDEFS) $(ASMDEFS) $(DEFS)\
 	$(INCLUDES) $(INCLUDE_PATH)
 
-MY_LIBS = $(LIBS) $(LIBS.$(ARCH)) $(LIBS.$(DISPLAY_METHOD)) -lz
+MY_LIBS = $(LIBS) $(LIBS.$(ARCH)) $(LIBS.$(DISPLAY_METHOD)) -lz 
 
 ifdef PROC
 MY_LIBS += -lyaml-cpp -lpinproc -lftdi1 -lusb
@@ -215,7 +215,7 @@ MY_LIBS += -lSDL2_mixer
 MY_LIBS += -lwiringPi
 endif
 
-ifdef OPPA_X
+ifdef OPPA
 MY_LIBS += -lwiringPi
 endif
 

@@ -71,16 +71,16 @@ TARGET = pinmame
 
 # uncomment next line to include LISY support
 # see http://www.lisy80.com/
-# LISY_X = 1
+#LISY_X = 1
 # uncomment next line to enable support for LISY fake VIDEO driver
 # this will also select 'vid_lisy' as DISPLAY_METHOD
-# LISY_X_FAKE_VIDEO = 1
+#LISY_X_FAKE_VIDEO = 1
 
 # uncomment next line to include OPPA support
-# OPPA_X = 1
+OPPA = 1
 # uncomment next line to enable support for LISY fake VIDEO driver
-# this will also select 'vid_lisy' as DISPLAY_METHOD
-# OPPA_X_FAKE_VIDEO = 1
+# this will also select 'vid_oppa' as DISPLAY_METHOD
+ OPPA_FAKE_VIDEO = 1
 
 ###########################################################################
 # Development environment options 
@@ -129,7 +129,7 @@ CFLAGS =
 # this section.
 ###########################################################################
 
-CFLAGS = -fomit-frame-pointer -Wall -Wno-unused
+CFLAGS = -fomit-frame-pointer -Wall -Wno-unused 
 
 # gcc on x86 with some optimizations
 # CFLAGS = -O2 -Wall -Wno-unused -mcpu=i686 -fomit-frame-pointer \
@@ -319,7 +319,7 @@ ifeq ($(CC),sun-forte)
   # Before starting xmame, be sure to set the env variable PARALLEL to the #
   # of processors to use; PARALLEL=2 ./xmame.x11 
   # xmame doesn't appear to like these at present
-  # XPARALLEL += -xparallel
+  XPARALLEL += -xparallel
   # uncomment to have cc collapse various math expression sequences, possibly 
   # affecting roundoffs.  Requires -xparallel
   # EXTRA_OPTS += -xreduction
@@ -327,6 +327,7 @@ ifeq ($(CC),sun-forte)
   # Sparc only, uncomment to do loop restructuring optimizations
   # and speculative prefetch for v8plusa and above
   EXTRA_OPTS += -xdepend  -xsafe=mem
+
 
   #################################################
   # Additional options for glx builds
@@ -598,7 +599,7 @@ ARCH  = linux
 # Choose any additonal sound drivers you want to include, besides the 
 # native sound driver for your system.
 # SOUND_ESOUND = 1
-# SOUND_ALSA = 1
+SOUND_ALSA = 1
 # SOUND_ARTS_TEIRA = 1
 # SOUND_ARTS_SMOTEK = 1
 # SOUND_SDL = 1
@@ -647,7 +648,7 @@ endif
 
 # OPPA_X NO video output
 # automatic selection 
-ifdef OPPA_X_FAKE_VIDEO
+ifdef OPPA_FAKE_VIDEO
 DISPLAY_METHOD = vid_oppa
 endif
 
@@ -788,12 +789,12 @@ ifdef LISY_X_FAKE_VIDEO
 CFLAGS += -DLISY_VIDEO
 endif
 
-ifdef OPPA_X
+ifdef OPPA
 # Enable support for OPPA
-CFLAGS += -DOPPA_SUPPORT
+CFLAGS += -DOPPA_SUPPORT 
 endif
 
-ifdef OPPA_X_FAKE_VIDEO
+ifdef OPPA_FAKE_VIDEO
 # Enable support for OPPA fake VIDEO driver
 CFLAGS += -DOPPA_VIDEO
 endif

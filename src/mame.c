@@ -126,6 +126,9 @@
  #include "lisy/utils.h"
 #endif /* PINMAME && LISY_SUPPORT */
 #if defined(PINMAME) && defined(OPPA_SUPPORT)
+ #include "oppa/oppa.h"
+ #include "oppa/oppa_display.h"
+ #include "oppa/universal.h"
 #endif /* PINMAME && OPPA_SUPPORT */
 
 /***************************************************************************
@@ -378,7 +381,7 @@ static int init_machine(void)
 	lisy_init();
 #endif /* PINMAME && LISY_SUPPORT */
 #if defined(PINMAME) && defined(OPPA_SUPPORT)
-	oppa_init();
+	//oppa_init();
 #endif /* PINMAME && OPPA_SUPPORT */
 
 	/* if we have inputs, process them now */

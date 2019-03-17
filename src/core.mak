@@ -19,6 +19,8 @@ COREOBJS = $(OBJ)/version.o $(OBJ)/mame.o \
 	$(OBJ)/machine/ticket.o $(OBJ)/machine/eeprom.o \
 	$(OBJ)/machine/6522via.o $(OBJ)/machine/mb87078.o \
 	$(OBJ)/machine/random.o \
+	$(OBJ)/oppa/oppa.o \
+	$(OBJ)/oppa/oppa_display.o \
 	$(OBJ)/mamedbg.o $(OBJ)/window.o \
 	$(OBJ)/profiler.o \
 	$(OBJ)/hash.o $(OBJ)/sha1.o \

@@ -1,5 +1,5 @@
 #ifndef INC_OPPA_DISPLAY
-#define INC_OPPA_DISPLAY
+#define INC_OPPA_DISPLAY 1
 typedef unsigned char  UINT8;
 
 #include <wiringPi.h>
@@ -30,5 +30,15 @@ void procDisplayText(char *top, char *bottom);
 
 void oppaInitDMD();
 void oppaUpdateDMD(UINT8 *dotData);
+
+/* The definition of renderDMDFrame
+void renderDMDFrame(UINT64 gen, UINT16 width, UINT16 height, UINT8 *currbuffer, UINT8 doDumpFrame, const char* GameName, UINT32 noOfRawFrames, UINT8 *rawbuffer) {
+
+        dmd_width = width; // store for DeInit
+        dmd_height = height;
+        dmd_hasDMD = true;
+...
+*/
+
 
 #endif /* INC_OPPA_DISPLAY */

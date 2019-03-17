@@ -66,6 +66,10 @@ void vp_setDIP(int bank, int value) { }
   #define vp_setDIP(x,y)
 #endif /* VPINMAME */
 
+#ifdef OPPA
+  #include "oppa/oppa.h"
+#endif
+
 static void drawChar(struct mame_bitmap *bitmap, int row, int col, UINT32 bits, int type, int dimming);
 static UINT32 core_initDisplaySize(const struct core_dispLayout *layout);
 static VIDEO_UPDATE(core_status);
@@ -877,8 +881,12 @@ void video_update_core_dmd(struct mame_bitmap *bitmap, const struct rectangle *c
 
   osd_mark_dirty(layout->left*locals.displaySize,layout->top*locals.displaySize,
                  (layout->left+layout->length)*locals.displaySize,(layout->top+layout->start)*locals.displaySize);
+#ifdef OPPA
+  // Send Current buffer to OPPA Display
+  oppaUpdateDMD(currbuffer);
+#endif
 
-#ifdef VPINMAME
+#ifdef VPINMAME 
 
   if ((layout->length == 128) || (layout->length == 192) || (layout->length == 256)) { // filter 16x8 output from Flipper Football
 

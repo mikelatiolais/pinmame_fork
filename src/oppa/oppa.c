@@ -1,4 +1,7 @@
+#ifndef OPPA_DISPLAY_H
+#define OPPA_DISPLAY_H 1
 #include "oppa_display.h"
+#endif
 #include "universal.h"
 #include <stdio.h>
 
