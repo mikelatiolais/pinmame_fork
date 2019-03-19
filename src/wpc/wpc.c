@@ -1048,6 +1048,11 @@ static SWITCH_UPDATE(wpc) {
 		procGetSwitchEvents();
 	} else {
 #endif
+#ifdef OPPA
+	if (coreGlobals.p_rocEn) {
+		procGetSwitchEvents();
+	} else {
+#endif
   if (inports) {
     coreGlobals.swMatrix[CORE_COINDOORSWCOL] = inports[WPC_COMINPORT] & 0xff;
     /*-- check standard keys --*/
@@ -1062,7 +1067,7 @@ static SWITCH_UPDATE(wpc) {
     if (core_gameData->wpc.comSw.shooter)
       core_setSw(core_gameData->wpc.comSw.shooter,  inports[CORE_SIMINPORT] & SIM_SHOOTERKEY);
   }
-#ifdef PROC_SUPPORT
+#if defined(PROC_SUPPORT) || defined(OPPA)
 	}
 #endif
 }
