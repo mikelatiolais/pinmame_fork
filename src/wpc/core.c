@@ -12,6 +12,10 @@
 #ifdef PROC_SUPPORT
  #include "p-roc/p-roc.h"
 #endif
+#ifdef OPPA
+ #include "oppa/oppa.h"
+ #include "oppa/oppa_display.h"
+#endif
 #ifdef VPINMAME
  #include <windows.h>
  #include "dmddevice.h"
@@ -65,10 +69,6 @@ void vp_setDIP(int bank, int value) { }
   #define vp_updateMech()
   #define vp_setDIP(x,y)
 #endif /* VPINMAME */
-
-#ifdef OPPA
-  #include "oppa/oppa.h"
-#endif
 
 static void drawChar(struct mame_bitmap *bitmap, int row, int col, UINT32 bits, int type, int dimming);
 static UINT32 core_initDisplaySize(const struct core_dispLayout *layout);
