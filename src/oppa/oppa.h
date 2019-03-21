@@ -6,7 +6,7 @@ typedef unsigned char  UINT8;
 #include <wiringShift.h>
 #include <wiringSerial.h>
 
-
+/*
 // Gameitem functions
 void procSetSwitchStates(void);
 void procDriveLamp(int num, int state);
@@ -26,7 +26,26 @@ void procKickbackCheck(int num);
 void procConfigureRGBLamps(void);
 void procDisableAuxBus(void);
 void AddIgnoreCoil(int num);
+*/
 
+/* Initialize the oppa board */
 void oppa_init();
+
+/* Get current physical switch states */
+void oppa_getSwitches();
+
+/* Update LEDs */
+void oppa_setLEDs();
+
+/* Clear LEDs */
+void oppa_resetLEDs();
+
+/* Set solenoids */
+void oppa_setSolenoid();
+
+/* Reset solenoids */
+void oppa_resetSolenoids();
+
+
 
 #endif /* INC_OPPA_MAIN */
