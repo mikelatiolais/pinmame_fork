@@ -46,6 +46,7 @@ void oppa_setSolenoid();
 /* Reset solenoids */
 void oppa_resetSolenoids();
 
-
+/* Set GI String */
+void oppa_setGIString();
 
 #endif /* INC_OPPA_MAIN */
