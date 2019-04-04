@@ -756,6 +756,9 @@ void video_update_core_dmd(struct mame_bitmap *bitmap, const struct rectangle *c
   int noaa = !pmoptions.dmd_antialias || (layout->type & CORE_DMDNOAA);
   int ii, jj;
 
+  //FIXME
+  printf("In video_update_code_dmd\n");
+
   // prepare all brightness & color/palette tables for mappings from internal DMD representation:
   const int shade_16_enabled = ((core_gameData->gen == GEN_SAM) ||
 	  // extended handling also for some GTS3 games (SMB, SMBMW and CBW):
@@ -883,6 +886,7 @@ void video_update_core_dmd(struct mame_bitmap *bitmap, const struct rectangle *c
                  (layout->left+layout->length)*locals.displaySize,(layout->top+layout->start)*locals.displaySize);
 #ifdef OPPA
   // Send Current buffer to OPPA Display
+  printf("Getting ready to go to oppa display\n");
   oppaUpdateDMD(currbuffer);
 #endif
 

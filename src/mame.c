@@ -539,6 +539,7 @@ static int run_machine(void)
 		vh_close();
 	}
 
+
 	return res;
 }
 
@@ -553,17 +554,25 @@ void run_machine_core(void)
 	/* disable artwork for the start */
 	artwork_enable(0);
 
+        //FIXME
+        printf("After artwork_enable\n");
 	/* if we didn't find a settings file, show the disclaimer */
-	if (settingsloaded || options.skip_disclaimer || showcopyright(artwork_get_ui_bitmap()) == 0)
+	//if (settingsloaded || options.skip_disclaimer || showcopyright(artwork_get_ui_bitmap()) == 0)
+	if (0 == 0)
 	{
 #ifndef VPINMAME
 		/* show info about incorrect behaviour (wrong colors etc.) */
 		if (showgamewarnings(artwork_get_ui_bitmap()) == 0)
 #endif /* VPINMAME */
 		{
+                        //FIXME
+                        printf("Right before final if\n");
 			/* show info about the game */
-			if (options.skip_gameinfo || showgameinfo(artwork_get_ui_bitmap()) == 0)
+			//if (options.skip_gameinfo || showgameinfo(artwork_get_ui_bitmap()) == 0)
+			if (0 == 0)
 			{
+                                //FIXME
+                                printf("In main loop\n");
 				init_user_interface();
 
 				/* enable artwork now */
@@ -585,7 +594,8 @@ void run_machine_core(void)
 					if (nvram_file)
 						mame_fclose(nvram_file);
 				}
-
+                                //FIXME
+                                printf("About to do cpu_run\n");
 				/* run the emulation! */
 				cpu_run();
 

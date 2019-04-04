@@ -5,6 +5,7 @@ UINT8 oppadmd[OPPA_NUM_DMD_FRAMES][4096];
 
 /* Set up initial DMD pin configuration */
 void oppaInitDMD() {
+  printf("In oppa display init\n");
   wiringPiSetup();
   pinMode(pinDisplayEnable, OUTPUT);
   pinMode(pinRowData, OUTPUT);
