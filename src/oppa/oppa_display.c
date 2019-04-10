@@ -60,7 +60,7 @@ void oppaUpdateDMD(UINT8 *dotData) {
     /* Latch the row of data */
     digitalWrite(pinColLatch, LOW);
     for(index = 0; index < 16; index++) {
-      shiftOut(pinDotData,pinDotClock,LSBFIRST,dotData[(row*16) + index]); 
+      shiftOutSlow(pinDotData,pinDotClock,LSBFIRST,dotData[(row*16) + index]); 
       //shiftOut(pinDotData,pinDotClock,LSBFIRST,3); 
       //delayMicroseconds(40);
     }
@@ -128,5 +128,21 @@ void oppaUpdateDMDSPI(UINT8 *dotData) {
     digitalWrite(pinDisplayEnable, HIGH); 
     //delayMicroseconds(1);
   }
+}
+
+void shiftOutSlow(uint8_t dataPin, uint8_t clockPin, uint8_t bitOrder, uint8_t val)
+{
+     uint8_t i;
+
+     for (i = 0; i < 8; i++)  {
+           if (bitOrder == LSBFIRST)
+                 digitalWrite(dataPin, !!(val & (1 << i)));
+           else
+                 digitalWrite(dataPin, !!(val & (1 << (7 - i))));
+
+           digitalWrite(clockPin, HIGH);
+           delayMicroseconds(1);
+           digitalWrite(clockPin, LOW);
+     }
 }
 

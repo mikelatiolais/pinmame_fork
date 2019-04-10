@@ -33,6 +33,7 @@ void oppaInitDMD();
 void oppaInitDMDSPI();
 void oppaUpdateDMD(UINT8 *dotData);
 void oppaUpdateDMDSPI(UINT8 *dotData);
+void shiftOutSlow(uint8_t dataPin, uint8_t clockPin, uint8_t bitOrder, uint8_t val);
 
 /* The definition of renderDMDFrame
 void renderDMDFrame(UINT64 gen, UINT16 width, UINT16 height, UINT8 *currbuffer, UINT8 doDumpFrame, const char* GameName, UINT32 noOfRawFrames, UINT8 *rawbuffer) {
