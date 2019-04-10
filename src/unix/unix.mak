@@ -217,6 +217,7 @@ endif
 
 ifdef OPPA
 MY_LIBS += -lwiringPi
+MY_CFLAGS += -DOPPA
 endif
 
 ifdef SEPARATE_LIBM

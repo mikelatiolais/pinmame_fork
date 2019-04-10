@@ -11,6 +11,10 @@
 #ifdef PROC_SUPPORT
 #include "p-roc/p-roc.h"
 #endif
+#ifdef OPPA
+ #include "oppa/oppa.h"
+ #include "oppa/oppa_display.h"
+#endif
 
 #define PRINT_GI_DATA      0 /* printf the GI Data for debugging purposes   */
 #define DEBUG_GI           0 /* debug GI code - more printf stuff basically */
@@ -1049,9 +1053,13 @@ static SWITCH_UPDATE(wpc) {
 	} else {
 #endif
 #ifdef OPPA
-	if (coreGlobals.p_rocEn) {
-		procGetSwitchEvents();
-	} else {
+        //FIXME
+	//if (coreGlobals.p_rocEn) {
+	//	procGetSwitchEvents();
+	//} else {
+        if (1 == 1) {
+        //this does nothing
+        } else {
 #endif
   if (inports) {
     coreGlobals.swMatrix[CORE_COINDOORSWCOL] = inports[WPC_COMINPORT] & 0xff;
@@ -1215,6 +1223,11 @@ PINMAME_VIDEO_UPDATE(wpcdmd_update) {
   tDMDDot dotCol;
   int ii,jj,kk;
 
+#ifdef OPPA
+  for (kk = 0; kk < 3; kk++) {
+    oppaUpdateDMD(dmdlocals.DMDFrames[kk]);
+  }
+#else
 #ifdef VPINMAME
   g_raw_gtswpc_dmdframes = DMD_FRAMES;
 #endif
@@ -1252,5 +1265,6 @@ PINMAME_VIDEO_UPDATE(wpcdmd_update) {
     *line = 0; /* to simplify antialiasing */
   }
   video_update_core_dmd(bitmap, cliprect, dotCol, layout);
+#endif
   return 0;
 }

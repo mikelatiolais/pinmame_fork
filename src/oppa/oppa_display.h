@@ -4,6 +4,7 @@ typedef unsigned char  UINT8;
 
 #include <wiringPi.h>
 #include <wiringShift.h>
+#include <wiringPiSPI.h>
 
 #define OPPA_NUM_DMD_FRAMES 3
 #define pinDisplayEnable 26 // DMD pin 1
@@ -29,7 +30,9 @@ void procDisplayText(char *top, char *bottom);
 */
 
 void oppaInitDMD();
+void oppaInitDMDSPI();
 void oppaUpdateDMD(UINT8 *dotData);
+void oppaUpdateDMDSPI(UINT8 *dotData);
 
 /* The definition of renderDMDFrame
 void renderDMDFrame(UINT64 gen, UINT16 width, UINT16 height, UINT8 *currbuffer, UINT8 doDumpFrame, const char* GameName, UINT32 noOfRawFrames, UINT8 *rawbuffer) {

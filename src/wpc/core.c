@@ -15,6 +15,11 @@
 #ifdef OPPA
  #include "oppa/oppa.h"
  #include "oppa/oppa_display.h"
+ static UINT8 buffer1[DMD_MAXY*DMD_MAXX];
+ static UINT8 buffer2[DMD_MAXY*DMD_MAXX];
+ static UINT8 *currbuffer = buffer1;
+ static UINT8 *oldbuffer = NULL;
+ static UINT32 raw_dmdoffs = 0;
 #endif
 #ifdef VPINMAME
  #include <windows.h>
@@ -756,9 +761,6 @@ void video_update_core_dmd(struct mame_bitmap *bitmap, const struct rectangle *c
   int noaa = !pmoptions.dmd_antialias || (layout->type & CORE_DMDNOAA);
   int ii, jj;
 
-  //FIXME
-  printf("In video_update_code_dmd\n");
-
   // prepare all brightness & color/palette tables for mappings from internal DMD representation:
   const int shade_16_enabled = ((core_gameData->gen == GEN_SAM) ||
 	  // extended handling also for some GTS3 games (SMB, SMBMW and CBW):
@@ -856,6 +858,7 @@ void video_update_core_dmd(struct mame_bitmap *bitmap, const struct rectangle *c
     if (ii > 0) {
       for (jj = 0; jj < layout->length; jj++) {
 		const UINT8 col = dotCol[ii][jj];
+
 #ifdef VPINMAME
 		const int offs = (ii-1)*layout->length + jj;
 		currbuffer[offs] = col;
@@ -884,11 +887,6 @@ void video_update_core_dmd(struct mame_bitmap *bitmap, const struct rectangle *c
 
   osd_mark_dirty(layout->left*locals.displaySize,layout->top*locals.displaySize,
                  (layout->left+layout->length)*locals.displaySize,(layout->top+layout->start)*locals.displaySize);
-#ifdef OPPA
-  // Send Current buffer to OPPA Display
-  printf("Getting ready to go to oppa display\n");
-  oppaUpdateDMD(currbuffer);
-#endif
 
 #ifdef VPINMAME 
 
