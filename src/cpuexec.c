@@ -7,6 +7,7 @@
 ***************************************************************************/
 
 #include <math.h>
+#include <signal.h>
 #include "driver.h"
 #include "timer.h"
 #include "state.h"
@@ -380,7 +381,14 @@ static void cpu_post_run(void)
 	end_resource_tracking();
 }
 
-
+#ifdef OPPA
+void sig_handler(int signo) 
+{
+  if (signo == SIGINT) {
+   time_to_quit = 1;
+  }
+}
+#endif
 
 /*************************************
  *
@@ -398,6 +406,12 @@ void cpu_run(void)
 
 	/* loop over multiple resets, until the user quits */
 	time_to_quit = 0;
+
+#ifdef OPPA
+        /* Register a SIGINT to gracefully die with ctrl-c */
+        signal(SIGINT, sig_handler);
+
+#endif
 	while (!time_to_quit)
 	{
 		/* prepare everything to run */

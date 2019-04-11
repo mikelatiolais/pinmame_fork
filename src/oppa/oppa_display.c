@@ -79,7 +79,7 @@ void oppaUpdateDMD(UINT8 *dotData) {
     /* Advance the row pointer */
     digitalWrite(pinRowClock, LOW);   
     /* Minimum 1us dip */
-    //delayMicroseconds(10);  
+    delayMicroseconds(0);  
     digitalWrite(pinRowClock, HIGH);
 
     /* Reenable display */
