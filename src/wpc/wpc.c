@@ -398,6 +398,9 @@ static INTERRUPT_GEN(wpc_vblank) {
 			/* Don't explicitly update the DMD from here. The P-ROC code
 			   will update after the next DMD event. */
 #endif
+#ifdef OPPA
+      oppaUpdateDMD(dmdlocals.DMDFrames[dmdlocals.nextDMDFrame]);
+#endif
       dmdlocals.nextDMDFrame = (dmdlocals.nextDMDFrame + 1) % DMD_FRAMES;
     }
   }
@@ -1224,9 +1227,9 @@ PINMAME_VIDEO_UPDATE(wpcdmd_update) {
   int ii,jj,kk;
 
 #ifdef OPPA
-  for (kk = 0; kk < 3; kk++) {
-    oppaUpdateDMD(dmdlocals.DMDFrames[kk]);
-  }
+  //for (kk = 0; kk < 3; kk++) {
+  //  oppaUpdateDMD(dmdlocals.DMDFrames[kk]);
+  //}
 #else
 #ifdef VPINMAME
   g_raw_gtswpc_dmdframes = DMD_FRAMES;
