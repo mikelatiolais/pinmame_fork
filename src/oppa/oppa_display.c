@@ -1,8 +1,14 @@
 #include "oppa_display.h"
 #include <stdio.h>
+#include <pthread.h>
 
 UINT8 oppadmd[OPPA_NUM_DMD_FRAMES][4096];
 static const int CHANNEL = 1;
+/* Threads for OPPA */
+/* dmd_thread will draw threads based on interprocess communication */
+pthread_t dmd_thread;
+pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER;
+
 
 /* Set up initial DMD pin configuration */
 void oppaInitDMD() {

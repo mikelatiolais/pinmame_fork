@@ -129,6 +129,7 @@
  #include "oppa/oppa.h"
  #include "oppa/oppa_display.h"
  #include "oppa/universal.h"
+ #include <pthread.h>
 #endif /* PINMAME && OPPA_SUPPORT */
 
 /***************************************************************************
