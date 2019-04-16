@@ -400,6 +400,7 @@ static INTERRUPT_GEN(wpc_vblank) {
 #endif
 #ifdef OPPA
       oppaUpdateDMD(dmdlocals.DMDFrames[dmdlocals.nextDMDFrame]);
+      //oppaBlankDMD();
 #endif
       dmdlocals.nextDMDFrame = (dmdlocals.nextDMDFrame + 1) % DMD_FRAMES;
     }

@@ -24,6 +24,10 @@ void oppaInitDMD() {
   digitalWrite(pinDotData, LOW);
 }
 
+void oppaBlankDMD() {
+  digitalWrite(pinDisplayEnable, LOW);
+}
+
 /* Set up initial DMD pin configuration */
 void oppaInitDMDSPI() {
   int fd;
@@ -84,7 +88,8 @@ void oppaUpdateDMD(UINT8 *dotData) {
 
     /* Reenable display */
     digitalWrite(pinDisplayEnable, HIGH); 
-    //delayMicroseconds(1);
+    delayMicroseconds(2);  
+
   }
 }
 
