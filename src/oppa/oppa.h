@@ -50,21 +50,29 @@ void oppa_resetSolenoids();
 void oppa_setGIString();
 
 /* Serial Protocol */
-/* -- Commented out for now
-#define GET_SER_NUM_CMD  b'\x00'
-#define GET_PROD_ID_CMD  b'\x01'
-#define GET_VERS_CMD  b'\x02'
-#define SET_SER_NUM_CMD  b'\x03'
+
+/* READ_BANK_CMD - read one bank(8 bits) from the OPPA board */
+/* 1 byte argument - ID of bank to read                      */
+#define READ_BANK_CMD  b'\x01'
+
+/* GET_BANK_CFG_CMD - Read number of banks connected to controller */
+#define READ_BANK_CFG_CMD  b'\x02'
+
+/* GI_BANK_LIGHT_CMD - Light a whole GI bank */
+#define GI_BANK_LIGHT_CMD  b'\x01'
+
+/* READ_BANK_CMD - read one bank(8 bits) from the OPPA board */
+#define GI_BANK_BLINK_CMD  b'\x01'
+
+/* RESET_CMD - Clears OPPA switch states and stops all LED and solenoid activity except for GI */
 #define RESET_CMD  b'\x04'
+
 #define GO_BOOT_CMD  b'\x05'
 #define CFG_SOL_CMD  b'\x06'
 #define KICK_SOL_CMD  b'\x07'
-#define READ_GEN2_INP_CMD  b'\x08'
 #define CFG_INP_CMD  b'\x09'
 #define SAVE_CFG_CMD  b'\x0b'
 #define ERASE_CFG_CMD  b'\x0c'
-#define GET_GEN2_CFG  b'\x0d'
-#define SET_GEN2_CFG  b'\x0e'
 #define CHNG_NEO_CMD  b'\x0f'
 #define CHNG_NEO_COLOR  b'\x10'
 #define CHNG_NEO_COLOR_TBL  b'\x11'
@@ -79,8 +87,9 @@ void oppa_setGIString();
 #define INV_CMD  b'\xf0'
 #define ILLEGAL_CMD  b'\xfe'
 #define EOM_CMD  b'\xff'
-#define CARD_ID_TYPE_MASK  b'\xf0'
-#define NUM_G2_WING_PER_BRD  4
+
+
+
 #define WING_SOL  b'\x01'
 #define WING_INP  b'\x02'
 #define WING_INCAND  b'\x03'
@@ -117,6 +126,5 @@ void oppa_setGIString();
 #define INCAND_SET_ON  b'\x01'
 #define INCAND_SET_BLINK_SLOW  b'\x02'
 #define INCAND_SET_BLINK_FAST  b'\x04'
-*/
 
 #endif /* INC_OPPA_MAIN */
