@@ -793,6 +793,7 @@ endif
 ifdef OPPA
 # Enable support for OPPA
 CFLAGS += -DOPPA_SUPPORT 
+CFLAGS += -lpthread
 endif
 
 ifdef OPPA_FAKE_VIDEO

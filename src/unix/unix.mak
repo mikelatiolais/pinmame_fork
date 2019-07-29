@@ -216,7 +216,7 @@ MY_LIBS += -lwiringPi
 endif
 
 ifdef OPPA
-MY_LIBS += -lwiringPi
+MY_LIBS += -lwiringPi -lpthread
 MY_CFLAGS += -DOPPA
 endif
 
